@@ -90,14 +90,18 @@ control 'cis-dil-benchmark-6.1.3' do
       it { should_not be_writable.by 'other' }
       it { should_not be_executable.by 'other' }
       its(:uid) { should cmp 0 }
-      if os.debian?
-        its(:gid) { should cmp 42 }
-      else
-        its(:gid) { should cmp 0 }
-      end
       its(:sticky) { should equal false }
       its(:suid) { should equal false }
       its(:sgid) { should equal false }
+    end
+    if os.debian?
+      describe file(f) do
+	its(:gid) { should cmp 42 }
+      end
+    else
+      describe file(f) do
+	its(:gid) { should cmp 0 }
+      end
     end
   end
 end
@@ -158,14 +162,18 @@ control 'cis-dil-benchmark-6.1.5' do
       it { should_not be_writable.by 'other' }
       it { should_not be_executable.by 'other' }
       its(:uid) { should cmp 0 }
-      if os.debian?
-        its(:gid) { should cmp 42 }
-      else
-        its(:gid) { should cmp 0 }
-      end
       its(:sticky) { should equal false }
       its(:suid) { should equal false }
       its(:sgid) { should equal false }
+    end
+    if os.debian?
+      describe file(f) do
+	its(:gid) { should cmp 42 }
+      end
+    else
+      describe file(f) do
+	its(:gid) { should cmp 0 }
+      end
     end
   end
 end
