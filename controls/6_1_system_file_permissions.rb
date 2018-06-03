@@ -96,11 +96,11 @@ control 'cis-dil-benchmark-6.1.3' do
     end
     if os.debian?
       describe file(f) do
-	its(:gid) { should cmp 42 }
+        its(:gid) { should cmp 42 }
       end
     else
       describe file(f) do
-	its(:gid) { should cmp 0 }
+        its(:gid) { should cmp 0 }
       end
     end
   end
@@ -168,11 +168,11 @@ control 'cis-dil-benchmark-6.1.5' do
     end
     if os.debian?
       describe file(f) do
-	its(:gid) { should cmp 42 }
+        its(:gid) { should cmp 42 }
       end
     else
       describe file(f) do
-	its(:gid) { should cmp 0 }
+        its(:gid) { should cmp 0 }
       end
     end
   end
