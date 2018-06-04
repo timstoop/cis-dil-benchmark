@@ -92,7 +92,7 @@ control 'cis-dil-benchmark-5.3.3' do
   describe.one do
     %w(common-password system-auth).each do |f|
       describe file("/etc/pam.d/#{f}") do
-        its(:content) { should match(/^password (\S+\s+)+pam_unix\.so (\S+\s+)*remember=([56789]|[1-9][0-9]+)/) }
+        its(:content) { should match(/^password\s+.*pam_unix\.so\s+.*remember=([56789]|[1-9][0-9]+)/) }
       end
 
       describe file("/etc/pam.d/#{f}") do
