@@ -133,8 +133,8 @@ control 'cis-dil-benchmark-5.4.2' do
         its(:shell) { should match(%r{(/usr/sbin/nologin|/sbin/nologin|/bin/false)}) }
       end
 
-      describe shadow.user(user.user) do
-        its(:password) { should be_all { |m| m == '*' } }
+      describe shadow.users(user.user) do
+        its('passwords') { should be_all { |m| m == '*' } }
       end
     end
   end
